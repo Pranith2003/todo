@@ -1,6 +1,5 @@
 import InputField from "./components/custom/InputField";
 import TodoDisplay from "./components/custom/TodoDisplay";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 function App() {
   return (
     <>
@@ -8,8 +7,6 @@ function App() {
         <InputField />
         <TodoDisplay />
       </div>
-
-      <SpeedInsights />
     </>
   );
 }

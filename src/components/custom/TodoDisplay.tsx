@@ -1,35 +1,10 @@
 import { Todo } from "@/interfaces/todo";
 import TodoTile from "./TodoTile";
+import { useSelector } from "react-redux";
 
-const todos: Todo[] = [
-  {
-    id: "1",
-    title: "Hello",
-    completed: false,
-  },
-  {
-    id: "2",
-    title: "HEllo",
-    completed: false,
-  },
-  {
-    id: "3",
-    title: "HeLlo",
-    completed: false,
-  },
-  {
-    id: "4",
-    title: "HelLo",
-    completed: false,
-  },
-  {
-    id: "5",
-    title: "HellO",
-    completed: false,
-  },
-];
 
 const TodoDisplay = () => {
+  const todos = useSelector((state: any) => state.todo.todos as Todo[]);
   return (
     <>
       <div className="my-10">

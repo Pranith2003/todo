@@ -2,24 +2,34 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { addtodos } from "../../../redux/slices/todoSlice";
 import { useDispatch } from "react-redux";
+import { useToast } from "@/hooks/use-toast";
 
 const InputField = () => {
   const dispatch = useDispatch();
+  const { toast } = useToast();
 
   const addTodoData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const todo = e.currentTarget.todo.value.trim();
     if (todo) {
       const id = crypto.randomUUID().toString();
-      const title = todo.title;
+      const title = todo;
       const completed = false;
 
       dispatch(addtodos({ id, title, completed }));
 
+      toast({
+        title: "Todo Create Successfully",
+        variant: "success",
+      });
       e.currentTarget.reset();
 
       return;
     }
+    toast({
+      title: "Title Can't be Null",
+      variant: "destructive",
+    });
   };
 
   return (

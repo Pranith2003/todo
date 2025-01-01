@@ -12,7 +12,7 @@ const InputField = () => {
     e.preventDefault();
     const todo = e.currentTarget.todo.value.trim();
     if (todo) {
-      const id = crypto.randomUUID().toString();
+      const id = crypto.randomUUID();
       const title = todo;
       const completed = false;
 
@@ -27,7 +27,7 @@ const InputField = () => {
       return;
     }
     toast({
-      title: "Title Can't be Null",
+      title: "Title Can't be Empty",
       variant: "destructive",
     });
   };
